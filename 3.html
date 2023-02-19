@@ -18,57 +18,51 @@
         margin: 0px;
         width: 100%;
         height: 200px;
-        background-size: 100%;
-        background-image: url("img1.png");
-        background-repeat:no-repeat;
         text-align: center;
         font-size: 75px;
         line-height: 200px;
-        text-shadow: 10px 0px 5px gray, 12px 2px 3px darkgray;
-        font-variant: small-caps;
+        border-bottom: 2px solid gray;
     }
-    div{
-        text-align: center;
-        margin-top: 15px;
+    
+    ul{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 30px;
         font-size: 30px;
-        font-weight: bold;
-        word-spacing: 150px;
+        padding: 20px;
         font-variant: small-caps;
-        border-bottom: 1px solid gray;
-        padding: 15px;
-    }
-    p{
-        font-size: 11px;
-        border-right: 1px solid gray;
+        border-right: 2px solid gray;
         width: 350px;
     }
-    h2{
-        font-size: 15px;
-        border-right: 1px solid gray;
-        width: 350px;
-    }
-    iframe{
-        margin-right: 30px;
+    #grid{
+        display: grid;
+        grid-template-columns: 450px 1fr;
     }
  </style>
 </head>
 <body>
     <h1><a href="index.html">WEB</a></h1>
+ <div id="grid">
+    <ul>
+      <li><a href="1.html" style="color: gray;">Html</a></li>
+      <li><a href="2.html" style="color: gray;">Css</a></li>
+      <li><a href="3.html" class="active">JavaScript</a></li>
+    </ul>
  <div>
-  <a href="1.html" style="color: gray;">Html</a>
-  <a href="2.html" style="color: gray;">Css</a> 
-  <a href="3.html" class="active">JavaScript</a>
+   <h2>JavaScript</h2>
+   <p><strong><a href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" target="_blank" title="javascript">자바스크립트</a> <u>(JavaScript)</u>는 객체 기반의스크립트 프로그래밍 언어이다.
+     <br>이 언어는 웹 브라우저 내에서 주로 사용되며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다.
+     <br>또한 Node.js와 같은 런타임 환경과 같이 서버 프로그래밍에도 사용되고 있다.</strong></p>
  </div>
+</div>
 
-<h2>JavaScript</h2><iframe width="300" height="180"
-src="bodyvideo.mp4"
-frameborder="0" allowfullscreen align="right"></iframe>
-<p><strong><a href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" target="_blank" title="javascript">자바스크립트</a> <u>(JavaScript)</u>는 객체 기반의스크립트 프로그래밍 언어이다.
-    <br>이 언어는 웹 브라우저 내에서 주로 사용되며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다.
-    <br>또한 Node.js와 같은 런타임 환경과 같이 서버 프로그래밍에도 사용되고 있다.</strong></p>
+<p align="center"><iframe width="550" height="350"
+    src="bodyvideo.mp4"
+    frameborder="0" allowfullscree></iframe></p>
 
-<br><input type="checkbox"> JavaScript 내용을 모두 읽었는가?
-<br><input type="checkbox"> JavaScript 내용을 모두 이해했는가?
-<br><input type="checkbox"> JavaScript를 이용하여 코딩을 해보았는가?
+<p align="center"><input type="checkbox"> JavaScript 내용을 모두 읽었는가?
+ <br><input type="checkbox"> JavaScript 내용을 모두 이해했는가?
+ <br><input type="checkbox"> JavaScript를 이용하여 코딩을 해보았는가?</p>
+
 </body>
 </html>
