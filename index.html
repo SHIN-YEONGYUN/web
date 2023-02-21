@@ -11,20 +11,25 @@
 
 <body>
     <h1><a href="index.html">WEB</a></h1>
-    <input type="button" value="night" onclick="
-    document.querySelector('body').style.backgroundColor='black';
-    document.querySelector('body').style.color='white';
-    ">
-    <input type="button" value="Day" onclick="
-    document.querySelector('body').style.backgroundColor='white';
-    document.querySelector('body').style.color='black';
-    ">
+    <input type="button" value="black" onclick="
+   if(document.querySelector('body').dataset.mode === 'Day'){
+    document.querySelector('body').style.backgroundColor = 'gray';
+    document.querySelector('body').style.color = 'white';
+    document.querySelector('body').dataset.mode = 'Night';
+    this.value='Day';    
+   } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+    document.querySelector('body').dataset.mode = 'Day';
+    this.value = 'Night';
+   }
+">
     <div id="grid">
-        <ul>
+        <ol>
             <li><a href="1.html">Html</a></li>
             <li><a href="2.html">Css</a></li>
             <li><a href="3.html">JavaScript</a></li>
-        </ul>
+        </ol>
 
         <div>
             <h2>Welcome</h2>
