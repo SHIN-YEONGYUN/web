@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ex8</title>
+</head>
+
+<body>
+    <h1>Object</h1>
+    <h2>Create</h2>
+    <script>
+        var coworkers = {
+            "programmer": "king",
+            "designer": "queen"
+        };
+        document.write("programmer : " + coworkers.programmer + "<br>");
+        document.write("designer : " + coworkers.designer + "<br>");
+        coworkers.bookkeeper = "night";
+        document.write("bookkeeper : " + coworkers.bookkeeper + "<br>");
+        coworkers["data scientist"] = "prince"
+        document.write("data scientist : " + coworkers["data scientist"] + "<br>");
+    </script>
+    <h2>Iterate</h2>
+    <script>
+        for (var key in coworkers) {
+            document.write(key + '<br>');
+        }
+    </script>
+    <h2>Iterate2</h2>
+    <script>
+        for (var key in coworkers) {
+            document.write(coworkers[key] + '<br>');
+        }
+    </script>
+    <h2>Iterate3</h2>
+    <script>
+        for (var key in coworkers) {
+            document.write(key + ' : ' + coworkers[key] + '<br>');
+        }
+    </script>
+    <h2>Property & Method</h2>
+    <script>
+        coworkers.showAll = function () {
+            for (var key in this) {
+                document.write(key + ':' + this[key] + '<br>');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
