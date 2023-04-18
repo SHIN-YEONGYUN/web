@@ -3,15 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+h1 {
+border: 2px solid blue;
+text-align:center;
+margin:0 auto;
+width: 400px;
+border-radius: 10px;
+/* margin: 상 우 하 좌; */
+color:green;
+text-shadow: 5px 5px 4px green;
+box-shadow: -5px -5px 3px red;
+}
+
+body{background-color: aqua;
+}
+table a {text-decoration: none;}
+table{
+margin-left:auto;margin-right:auto;
+text-align:center;
+border: 3px solid pink;
+border-collapse: collapse;
+}
+table tr:nth-child(1){background-color:gray}
+table th, table td{border:3px solid pink;}
+h2{text-align: center;}
+.atag {text-align: center;}
+</style>
+
+
+
 </head>
 <body>
 	<h1>boardlist를 출력합니다.</h1>
 	<form action="boardsearch.html">
-		<select name="search">
+		<select name="search" multiple="multiple">
 			<option>제목</option>
-		</select> <select name="search">
 			<option>내용</option>
-		</select> <select name="search">
 			<option>작성자</option>
 		</select> 검색어 : <input type="text" name="search"> <input type=submit
 			value="검색">
@@ -56,11 +85,14 @@
 		</tr>
 	</table>
 
-	<h3>페이지번호</h3>
+	<h2>페이지번호</h2>
+<div class="atag">
 	<a href="boardlist.html">1</a>&nbsp;
 	<a href="boardlist.html">2</a>&nbsp;
 	<a href="boardlist.html">3</a>&nbsp;
 	<a href="boardlist.html">4</a>&nbsp;
 	<a href="boardlist.html">5</a>&nbsp;
+	</div>
+	<a href="boardinsert.html">글쓰기</a>
 </body>
 </html>
