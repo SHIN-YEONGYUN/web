@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입 폼입니다.</h1>
+	<!-- 1. <INPUT> 아이디 암호 이름 성별 좋아하는 과목 입력
+             2. 회원가입 입력 정보를 DB 저장 -->
+	<form ACTION="memberinsert.jsp">
+		아이디 : <input type="text" name="memberid"><br> 암호 : <input
+			type=password name="pw"><br> 이름 : <input
+			name="membername"><br> 성별 : <input type=radio
+			name="gender" value="남자">(브라우저출력)male<input type=radio
+			name="gender" value="여자">female<br> 좋아하는 과목(복수) : <input
+			type=checkbox name="subject" value="java">자바 <input
+			type=checkbox name="subject" value="java">sql <input
+			type=checkbox name="subject" value="java">frontend <input
+			type=checkbox name="subject" value="java">backend<br>
+		이력서 : <input type=file value="myfile"><br> <input
+			type=hidden name='role' value="admin"> <input type=submit
+			value="회원가입 버튼"> <input type=reset value="회원가입 취소"> <input
+			type=button value="회원가입 버튼"><br>
+			<input type=image src="images/google.png">
+	</form>
+</body>
+</html>

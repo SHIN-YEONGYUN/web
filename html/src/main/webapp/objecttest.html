@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+let obj ={};
+document.write("<h3>타입출력=" + typeof(obj) + "</h3>");
+
+let emp1 ={
+		id:100,
+		name:"이사원",
+		salary:56700.00,
+		title:"사원",
+		dept:"교육부"
+};
+document.write("<h3>emp1의사번출력=" + emp1.id + "</h3>");
+document.write("<h3>emp1의이름출력=" + emp1.name + "</h3>");
+document.write("<h3>emp1의급여출력=" + emp1.salary + "</h3>");
+
+delete emp1.salary;
+document.write("<h3>emp1의급여출력=" + emp1.salary + "</h3>");
+
+emp1.email="lee@a.com";
+emp1['phone']="01011112222";
+document.write("<h3>emp1이메일=" + emp1.email + " "+ emp1.phone+ "</h3>");
+
+emp1['title']="신입사원";
+document.write("<h3>emp1의직급출력=" + emp1.title + "</h3>");
+document.write("<h3>emp1 salary 포함여부=" + ('salary' in emp1) + "</h3>");
+
+for(p in emp1){
+	document.write("<h3>"+ emp1[p]+"</h3>");
+}
+
+let emp2={id:200,name:'김대리'};
+for(p in emp2){
+	document.write("<h3>" + emp2[p] + "</h3>");
+}
+</script>
+</body>
+</html>
