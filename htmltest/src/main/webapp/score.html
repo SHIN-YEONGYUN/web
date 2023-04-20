@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var br = "<br>";
+		var num1 = parseInt(prompt('국어: '));
+		var num2 = parseInt(prompt('수학: '));
+		var num3 = parseInt(prompt('영어: '));
+
+		var input = confirm('위의 점수를 공개하시겠습니까?');
+		if (input == true) {
+			document.write("국어= " + (num1 + 10) + br);
+			document.write("수학= " + (num2 + 10) + br);
+			document.write("영어= " + (num3 + 10) + br);
+			score = (num1 + 10) + (num2 + 10) + (num3 + 10);
+			avg = score / 3;
+			document.write("총점= " + score + br);
+			document.write("평균= " + avg + br);
+		} else {
+			document.write("국어= " + num1 + br);
+			document.write("수학= " + num2 + br);
+			document.write("영어= " + num3 + br);
+			score = num1 + num2 + num3;
+			avg = score / 3;
+			document.write("총점= " + score + br);
+			document.write("평균= " + avg + br);
+		}
+		document.write("공개여부= " + input + br);
+		if (avg >= 80) {
+			document.write("우수" + br);
+		} else if (avg >= 60) {
+			document.write("보통" + br);
+		} else if (avg >= 40) {
+			document.write("노력" + br);
+		} else if (avg < 40) {
+			document.write("많이 분발" + br);
+		}
+	</script>
+	<table border=3px>
+		<tr>
+			<td>국어</td>
+			<td>num1</td>
+		</tr>
+		<tr>
+			<td>수학</td>
+		</tr>
+		<tr>
+			<td>영어</td>
+		</tr>
+		<tr>
+			<td>공개여부</td>
+		</tr>
+		<tr>
+			<td>총점</td>
+		</tr>
+		<tr>
+			<td>평균</td>
+		</tr>
+		<tr>
+			<td>등급</td>
+		</tr>
+	</table>
+</body>
+</html>
