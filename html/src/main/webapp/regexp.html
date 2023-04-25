@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+window.onload = function(){
+	let div = document.getElementById("here").innerHTML;
+	let div2=document.getElementById("result");
+	div2.innerHTML=div.indexOf("abc");
+	
+	let reg1 = /[abc]/gim;
+	let reg2 = new RegExp("[abc]","gim");
+	
+	reg1=/a[b]{0,1}c/gim;
+	// div2.innerHTML = reg2.test(div);
+	div2.innerHTML = div.match(reg1);
+}
+</script>
+<div id="here"> ac여기에는 abc를 포함한 문장이 있습니다. abc는 알파벳 소문자입니다. abbbbbbbb</div>
+<div id="result"></div>
+</body>
+</html>

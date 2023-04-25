@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var br = "<br>";
+		//
+		document.write(br);
+
+		let ar1 = [ 1, 2, 3, 100, 5 ];
+		let ar2 = new Array();
+
+		// 추가삭제
+		/* ar1.push(450);
+		 ar1.unshift(10);
+		 ar1[3] = "새로추가";
+		 ar[7] = "값추가";
+		 delete ar1[7];
+		 ar1.shift();
+		 ar1.pop();
+		 ar1.splice(1,2);
+		 ar1.splice(1,0,"추가");
+		 document.write(ar1.length+br);
+		 document.write(ar1+br); */
+		/* 
+		 let result_ar = ar1.slice(1,4);
+		 document.write(result_ar + br); */
+
+		let ar3 = [ 1, 2, 3, 100, 5 ];
+		document.write("정렬이전 = " + ar3 + br);
+		document.write("정렬이후1 = " + ar3 + br);
+		ar3.sort(function(i, j) {
+			return i - j;
+		}); // sort - 고차함수
+		// function(){} = sort 메소드가 실행될 때 같이 자동실행
+		document.write("정렬이후2(숫자오름) = " + ar3 + br);
+		ar3.sort(function(i, j) {
+			return -(i - j);
+		}); // sort - 고차함수
+		document.write("정렬이후3(숫자내림) = " + ar3 + br);
+
+		// 수정
+		let result2 = ar1.concat([ 'java', 'script' ]);
+		document.write("concat이후 = " + result2 + br);
+		// 조회
+		document.write(ar1.join("<br>") + br);
+		// for(a in ar1){ar1[a]}
+
+		// 포함여부
+		let isJava = result2.includes('java');
+		document.write(isJava + br);
+
+		// 포함위치(0~배열.length-1) / 없으면 -1
+		let index = result2.indexOf('java');
+		document.write(index + br);
+
+		let ar4 = [ "java", "spring", "html", "java", "css", "ai", "java" ];
+
+		let start = 0;
+		while (true) {
+			let target = ar4.indexOf("java", start);
+			if (target == -1)
+				break;
+			ar4.splice(target, 1);
+			start = target;
+		}
+
+		document.write(ar4 + br);
+
+		let items = [ 'item1', 'item2', 'item3' ];
+		let copy_items = [];
+
+		for (let i = 0; i < items.length; i++) {
+			copy_items.push(items[i]);
+		}
+		items.forEach(function(item) {
+			copy_items.push(item);
+		});
+
+		document.write("카피 배열 = " + copy_items + br);
+
+		items.forEach(function(item, index, items) {
+			// items 배열 각 요소를 대문자로 변경 결과를 items 배열 저장
+			items[index].toUpperCase();
+		});
+		document.write("대문자변경 items = " + items + br);
+
+		let numbers = [ 1, 4, 9, 16, 25 ];
+		let roots = numbers.map(Math.sqrt);
+		document.write("sqrt실행이전 = " + numbers + br);
+		document.write("sqrt실행이후 = " + numbers + br);
+		document.write("sqrt실행이후 = " + roots + br);
+
+		let strings = [ '1', '4', '9', '16', '25' ];
+		// let str_numbers = strings.map(Number);
+
+		let str_numbers = strings.map(function(s) {
+			parseInt(s, 10);
+		});
+		document.write("변환이후 = " + str_numbers + br);
+
+		items = [ 'item1', 'item2', 'item3' ];
+		items.map(function(i) {
+			return "<li>" + i + "</li>";
+		});
+
+		/* document.write("<ul>");
+		 document.write(lis);
+		 document.write("</ul>");
+		 */
+		let two = [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ];
+		two.push([ 1, 1, 1 ]);
+
+		for (let i = 0; i < two_const.length; i++) {
+			two_const[i] = new Array(3);
+			for (let j = 0; j < two_const[i].length; j++) {
+				two_const[i][j] = i * j;
+			}
+		}
+		document.write(two_const + "<br>");
+
+		let obj = {
+			'0' : 1,
+			'1' : 10,
+			'length' : 10
+		};
+	</script>
+</body>
+</html>

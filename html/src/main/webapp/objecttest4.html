@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var br = "<br>";
+		//
+		document.write(br);
+
+		let emp = {
+			id : 100,
+			name : "이사원",
+			title : '사원',
+			dept : "교육부",
+			print : function() {
+			}
+		}
+		document.write(emp.id + br); // 읽기
+		emp.id = 200; // 재정의
+		emp.salary = 45600.99; // 프로퍼티 추가
+		delete emp.salary; // 프로퍼티 삭제
+
+		// 프로퍼티 추가 불가
+		/* Object.preventExtensions(emp);
+		emp.salary = 45600.99; 
+		
+		document.write("salary" in emp ) + br; */
+
+		// 프로퍼티 삭제/추가불가
+		/* Object.seal(emp);
+		emp.salary = 45600.99;
+		document.write(("salary" in emp) + br);
+		delete emp.id;
+		document.write(("id" in emp) + br); */
+
+		// 프로퍼티 삭제/추가/수정불가 = readonly
+		Object.freeze(emp);
+		emp.name = "이대리";
+		document.write(emp.name + br);
+		emp.salary = 45600.99;
+		document.write(("salary" in emp) + br);
+		delete emp.id;
+		document.write(("id" in emp) + br);
+
+		// 프로퍼티 확인열거
+		// 1개 프로퍼티
+		document.write(("id" in emp) + br);
+		document.write(emp.hasOwnProperty('id') + br);
+
+		//emp 객체 모든 프로퍼티 열거
+		for (p in emp) {
+			document.write(p + ":" + emp[p] + " : ");
+		}
+		document.write("<br>");
+		document.write("<br>");
+		document.write("<hr>");
+
+		document.write(Object.keys(emp) + br);
+		document.write("<hr>");
+
+		document.write(Object.getOwnPropertyNames(emp) + br);
+	</script>
+</body>
+</html>

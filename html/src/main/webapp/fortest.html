@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+// Array, String , Set, Map 내장객체들 반복 가능
+let s = "javascript";
+let arr = ['a', 100, undefined, [1,2,3], {x:10, y:10, r:5} ]
+document.write("<hr>");
+for(p in s){ 	document.write(s[p] + "<br>");
+}
+document.write("<hr>");
+for(p in arr){ 	document.write(p + " 인덱스의 값 = " + arr[p] + "<br>");
+}
+document.write("<hr>");
+for(p of s){ 	document.write(p + "<br>");
+}
+document.write("<hr>");
+for(p of arr){ 	document.write(p + "<br>");
+}
+document.write("<hr>");
+</script>
+</body>
+</html>

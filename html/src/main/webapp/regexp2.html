@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+
+let reg1 = new RegExp("^[0-9]{3}-[0-9]{3,4}-[0-9]{4}$");
+let tel = "010-2222-3333";
+document.write(reg1.test(tel)+br);
+tel2 = "영10-2222-3333";
+document.write(reg1.test(tel2)+br);
+tel = "011111-2222-3333";
+document.write(reg1.test(tel)+br);
+document.write(br);
+
+let reg2 = /^[a-z-A-Z가-힣]{1}[a-z-A-Z가-힣0-9]{1,10}@[a-z-A-Z가-힣0-9]{3,5}(.com|.co.kr|.net)/;
+window.onload = function(){
+	let valid = document.getElementById("valid");
+	valid.onclick = function(){
+		let myemail = document.getElementById("myemail");
+		let result = document.getElementById("result");
+		let target = myemail.value;
+		result.innerHTML = reg2.test(target);
+	}
+}
+// myurl http || https 로 시작할 것 유효성 체크
+
+</script>
+홈페이지 <input type=URL id="myurl" size = 100><br>
+이메일 <input type=email id="myemail" size = 100><br>
+<input type=button id="valid" value="유효성검증">
+<div id=result></div>
+</body>
+</html>
