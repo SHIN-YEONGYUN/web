@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<SCRIPT>
+/*alert();
+window.document.write()
+window.console.log();
+*/
+
+//변수,함수 사용자 정의 - window 내장객체 내부 포함
+//문자열 입력. 확인(입력내용)/취소(null)
+//let val1 = prompt("아이디입력하세요");
+//document.write(val1 + "<br>");
+
+//2개 선택지. true/false 논리값 입력
+//let val2 = confirm("입력한 내용이 맞습니까?");
+//document.write(val2 + "<br>");
+
+//나이를 입력하면 +1 - 내년에는 ??세가 되겠군요
+//let val3 = prompt("나이를 입력하세요");//"20"
+
+//document.write("내년에는 " + (parseInt(val3) + 1) + " 세가 되겠군요" + "<br>");
+
+// string를 숫자 변환 가능1(숫자변환부분까지만 변환)
+document.write((parseInt(123.456) )+ "<br>");
+document.write((parseInt("123사오육") )+ "<br>");
+document.write((parseInt("사오육123") )+ "<br>");
+
+document.write(  typeof( parseFloat("123.45678") )+ "<br>");
+
+
+//Number생성자함수객체 = number타입의 변수랑 동일하게 취급
+let age = 12.456789;
+document.write( age.toFixed(2) + "<br>");
+let age2 = new Number(age);
+document.write( age2.toFixed(2) + "<br>");
+
+// string를 숫자 변환 가능2(문자열포함 x)
+let age3 = new Number("12삼사오");//
+document.write( age3 + "<br>");//NaN
+
+if( isNaN("12345") ){
+	document.write("숫자 변환 불가 <br>");
+}
+else{
+	let age4 = new Number("12345");
+	document.write( age4 + "<br>");//NaN
+}
+
+//Date 내장 생성자함수
+let now = new Date();
+document.write("<h3 style=color:green>" + now + "</h3>");
+document.write("<h3 style=color:red>" + now.toLocaleDateString() + "</h3>");
+document.write("<h3 style=color:bluen>" + now.toLocaleTimeString() + "</h3>");
+document.write("<h3 style=color:purple>" + now.toLocaleString() + "</h3>");
+
+</SCRIPT>
+</body>
+</html>
+
+<!-- 
+
+window.메소드
+aprseInt/parseFloat (숫자(o)/숫자문자열(o)/문자열숫자(x))
+new Number("숫자(o)/문자열(x)").메소드
+
+-->

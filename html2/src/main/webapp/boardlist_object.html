@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function Board (seq, title, contents){
+	this.seq = seq;
+	this.title = title;
+	this.contents = contents;
+	this.time = new Date().toLocaleString();
+	this.print = function(){
+		return `${this.seq} : ${this.title} : ${this.contents} : ${this.time}`;
+	}
+}//Board생성자
+let boardlist = [];
+let boardcount = 0;
+let write, output, writeform, list, save, seq, title, contents, saveresult;
+window.onload = function(){
+write = document.getElementById("write");
+output = document.getElementById("output");
+//글쓰기버튼 클릭시 이벤트
+write.onclick = function(){
+	writeform = document.getElementById("writeform");
+	writeform.innerHTML = 
+		`<input type=text id='seq' >
+		<input type=text id='title' >
+		<input type=text id='contents' >
+		<input type=button id='save' value="게시물저장" >`;
+		
+	save = document.getElementById("save");
+	//저장버튼 클릭시 이벤트
+	save.onclick = function(){
+		seq= document.getElementById("seq").value;
+		title= document.getElementById("title").value;
+		contents= document.getElementById("contents").value;
+		saveresult = document.getElementById("saveresult");
+		
+		if(boardcount >= 5){
+			saveresult.innerHTML = "더이상 게시물을 추가할 수 없습니다.";
+			saveresult.style = "color:red";			
+		}
+		else{
+		let oneboard = new Board(seq, title, contents);
+		boardlist.push(oneboard);
+		boardcount++;
+		saveresult.innerHTML = "게시물을 " + boardcount + " 개 저장하였습니다.";
+		saveresult.style = "color:green";				
+		}
+	}//save.onclick
+}//write onclock end
+
+//게시물리스트 클릭시 이벤트
+output.onclick = function(){
+	list = document.getElementById("list");
+	list.innerHTML = "<ul>";
+	for(let i = 0; i < boardlist.length; i++){
+		list.innerHTML += "<li>" + boardlist[i].print() + "</li>";
+	}
+	list.innerHTML += "</ul>";
+}//output.onclick end
+}//onload end
+/* 
+0. function Board (번호, 제목, 내용){현재객체번호 = 번호; ..... time = new Date().toLocaleString() }
+   let boardlist =[];
+1. write 버튼 클릭하면 writeform에 게시물번호 제목 내용 텍스트 타입, 게시물저장 버튼 타입의 input 태그(4개)를 생성한다.
+2. 게시물저장 버튼(id=save) 클릭하면 번호 제목 내용 3개 입력값을 Board 생성자 함수의 객체로 생성한다.
+2-1. 번호, 제목, 내용 저장 프로퍼티 변수 3개 입력한 값으로 초기화, 글쓴시각 현재시간으로 초기화합니다.
+(선택적으로 메소드 추가)
+3. boardlist 배열에 저장한다.
+saveresult 에 게시물 n개 저장되었습니다 출력한다.(n은 저장되는 게시물 갯수이다)
+
+단, boardlist 배열은 게시물을 5개까지만 입력 가능하므로 그 이상 입력시 saveresult에 더이상 게시물 저장 불가능합니다. 출력한다.
+
+4. output 버튼 클릭하면 list 위치에 5개 게시물 입력 결과 출력한다.
+*/
+ 
+</script>
+<input type=button id=write value="글쓰기">
+<div id="writeform">글쓰기폼을 작성하여 글을 입력하면 저장합니다.</div>
+<div id="saveresult"> </div>
+<input type=button id=output value="게시물리스트">
+<div id="list">게시물 결과를 출력합니다. </div>
+
+</body>
+</html>

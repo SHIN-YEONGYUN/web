@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+let br="<br>";
+//함수선언식 /함수를 변수 취급
+
+// 기능 =  매개변수+리턴값+구현문장
+function f1 (){
+	document.write("함수 출력=" + this +  br);
+}
+f1();
+/*window.*/f1();
+
+// 데이터와 기능 = 프로퍼티+ 메소드(객체내부포함함수)
+let emp1 =  {
+		id:100,
+		name:"이사원",
+		salary:78000.99,
+		print:function(){document.write("emp1 메소드 출력=" + this + br);},
+		add:function (bonus){document.write("급여값 출력=" + (this.salary + bonus) + br); }
+};
+
+emp1.print();
+emp1.add(10000);
+
+</script>
+</body>
+</html>

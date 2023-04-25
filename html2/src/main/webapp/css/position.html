@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+.box {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: purple;
+	color: white;
+	position: static;
+}
+
+#two {
+	/* position: relative;*/
+	/*position: absolute;*/
+	position: fixed; background-color : yellow;
+	top: 100px;
+	left: 100px;
+	background-color: yellow;
+	z-index: 100;
+}
+
+#three {
+	background-color: blue;
+	position:relative;
+	top:80px;
+	left:80px;
+	z-index: 70;
+}
+</style>
+
+
+</head>
+<body>
+
+	<div class="box" id="one">One</div>
+	<div class="box" id="two">Two</div>
+	<div class="box" id="three">Three</div>
+	<div class="box" id="four">Four</div>
+</body>
+</html>

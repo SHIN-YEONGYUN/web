@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/* 자바 객체=멤버변수(데이터) + 메소드 (기능)*/
+/* 자바스크립트 객체=프로퍼티(데이터) + 메소드 (기능/함수문법처럼정의)*/
+
+//프로퍼티 없는 객체
+let obj = {};//Object타입
+document.write("<h3>타입출력=" + typeof(obj) + "</h3>");
+
+//프로퍼티 있는 객체
+let emp1 = {
+		id:100 , 
+		name:"이사원",
+		salary : 56700.00,
+		title : "사원",
+		dept : "교육부"
+};
+document.write("<h3>emp1사번=" + emp1.id + "</h3>");
+document.write("<h3>emp1이름=" + emp1.name + "</h3>");
+document.write("<h3>emp1급여=" + emp1.salary + "</h3>");
+
+//프로퍼티 삭제 
+delete emp1.salary;
+document.write("<h3>emp1급여=" + emp1.salary + "</h3>");
+
+//프로퍼티 추가
+emp1.email="lee@a.com";
+emp1['phone']="01011112222";
+document.write("<h3>emp1이메일과폰=" + emp1.email + ":" + emp1.phone + "</h3>");
+
+//프로퍼티값 수정
+emp1['title']="신입사원";
+document.write("<h3>emp1 직급=" + emp1.title + "</h3>");
+
+//프로퍼티 포함 여부. in
+document.write("<h3>emp1 salary 포함여부=" + ('salary' in emp1) + "</h3>");
+
+//emp1 객체 포함 모든 프로퍼티 변수 출력
+for(p in emp1){
+	document.write("<h3>" + emp1[p] + "</h3>");
+}
+
+let emp2={id:200 ,  name:'김대리'};
+for(p in emp2){
+	document.write("<h3>" + emp2[p] + "</h3>");
+}
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

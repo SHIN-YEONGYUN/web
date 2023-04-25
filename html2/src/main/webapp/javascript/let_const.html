@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+//함수외부 전역변수 
+//let j = 200;
+//const k = 300;
+
+function test(){
+	//전역변수
+	i = 1000;
+	//함수내부 지역변수(scope)
+	let j = 2000;
+	const k = 3000;
+	document.write(i+br);
+	document.write(j+br);
+	document.write(k+br);
+}
+
+test();
+document.write(i+br);
+document.write(j+br);//error
+document.write(k+br);//error
+
+</script>
+</body>
+</html>

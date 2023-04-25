@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function display1() {
+			alert("클릭했어요");
+		}
+		window.onload = function() {
+			 
+			 document.getElementById("second").onclick = display1;
+			 
+			let second = document.getElementById("second");
+			second.oclick = function(){alert(second.tagName+":"+second.type);}
+			
+			let stop = document.getElementById("stop");
+			stop.onclick = function(){
+				second.onclick = null;
+			}
+		}
+	</script>
+	<input id="first" type=button value="클릭1" onclick="display1()">
+	<input id="second" type=button value="클릭2">
+	<input id="stop" type=button value="클릭2 이벤트 제거">
+</body>
+</html>

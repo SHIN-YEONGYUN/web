@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+let str1 = 'script';
+let str2 = "html";
+let str3 = ' \' java script\' ';
+let str4 = " \" java script\" ";
+let str5 = ' " java script" ';
+let str6 = " ' java script' ";
+
+let test="<br>";
+let str7 = '멀티캠퍼스는 기업교육 시장의 First Mover로서,'
++ test
++ '20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며'
++ '비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.';
+
+let str8 = '멀티캠퍼스는 기업교육 시장의 First Mover로서,\
+	 20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며\
+	 비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.';
+
+let str9 = `멀티캠퍼스는 기업교육 시장의 First Mover로서, ${test}
+	 20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며
+	 비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.`;
+	 
+	 
+document.write(str9 + br);
+
+let su1 = 100;
+let su2 = new Number(100);
+//wrapper : number 타입 = Number객체 타입
+
+let s1 = "문자열";
+let s2 = new String("문자열");
+document.write(typeof(s1) +":" + typeof(s2) + br);
+
+if(s1 == s2){document.write("s1 == s2 같다 " + br);}
+if(s1 === s2){document.write("s1 === s2 같다 " + br);}
+
+let s3 = "java script front end ";
+document.write("문자열갯수=" + s3.length + br);
+document.write("spring 위치=" + s3.indexOf('spring') + br);//-1
+document.write("script 위치=" + s3.indexOf('script') + br);//5
+
+if(s3.indexOf('spring') < 0 ){
+	//포함처리
+}
+else{
+	//비포함처리
+}
+
+document.write("5번인덱스(6번째등장)문자=" + s3.charAt(5) + br);
+
+//1개스트링 여러개 나누어(배열),    합침(+)
+//빅데이터-웹사이트 내용 크롤링- . ? ! , 공백, +
+
+let s4 = "http://www.multi campus.com/java-spring:web";
+//const result1 = s4.split(':'); 
+const result1 = s4.split(/:| |-|\//);//정규표현식. ':' '-' ' ' '/'
+document.write(result1+br); //  
+document.write(result1.join("<br>") +br); //  
+
+
+//s4.split('');	//1문자씩 분리	주의
+		
+//문자열->정수, 실수->정수
+parseInt(3.14);
+parseInt("300삼백");
+new Number("300삼백")
+//문자열->실수, 정수->실수
+parseFloat(3);
+parseFloat("300.99");
+new Number("300.99")
+
+//정수, 실수 -> 문자열
+let su5 = 100;
+document.write(  typeof(su5.toString()) + br);
+let su6 = 3.14;
+document.write(  typeof( new String(su6)) + br);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+function i(j, k){
+	let result = j+k;
+	return result;
+}
+
+document.write(i(10,20) + "<br>");
+
+let arrow1 = (j, k)=>{
+	let result = j+k;
+	return result;
+	};
+
+document.write(arrow1(10,20) + "<br>");	
+document.write(((j, k)=>{
+	let result = j+k;
+	return result;
+	})(10,20) + "<br>");	
+
+//let arrow2 = (i)=>{return i+i; };
+let arrow2 = i=>i+i; 
+document.write(arrow2(10) + "<br>");
+
+let arrow3 = ()=>10+10; 
+document.write(arrow3() + "<br>");
+
+//기존 함수 차이점
+//1. arguments 키워드-함수 전달 매개변수들 리스트 배열인데 화살표함수는 없다
+// ...매개변수 - 나머지매개변수
+function fi(){
+	//전달변수 모두 출력. 총합 리턴
+	let result = 0;
+	document.write("<hr>");
+	for(a in arguments){
+		document.write(arguments[a] + "<br>");
+		result +=arguments[a]; 
+	}
+	document.write("<hr>");
+	return result;
+}
+
+document.write("fi(10,20) = " +fi(10,20) + "<br>");
+document.write("fi(10,20, 4,5,6,7) = "+fi(10,20, 4,5,6,7) + "<br>");
+
+let arrow4 = (...c)=>{//배열. 나머지매개변수
+	//전달변수 모두 출력. 총합 리턴
+	let result = 0;
+	document.write("<hr>");
+	for(a in c){
+		document.write(c[a] + "<br>");
+		result +=c[a]; 
+	}
+	document.write("<hr>");
+	return result;
+}
+
+document.write("arrow4(10,20) = " +arrow4(10,20) + "<br>");
+document.write("arrow4(10,20, 4,5,6,7) = "+arrow4(10,20, 4,5,6,7) + "<br>");
+/*
+함수(a,b,...c)- ...변수명-rest매개변수(나머지매개변수)
+함수(1,2)- c 없다
+함수(1,2,3)- c=3
+함수(1,2,3,4,5)- c=[3,4,5]*/
+
+//2. this
+/*const emp = {
+	name:"홍길동",
+	tellName : function(){
+		const inner = function(){
+			document.write("===>"+this.name+"<br>");
+		}
+		inner();//호출 객체 누구 this  결정 window
+	}
+	};
+
+emp.tellName();*/
+
+//자바스크립트창시자 오류 this.. 다양함 - 바로잡자
+const emp = {
+		name:"홍길동",
+		tellName : function(){
+			//정의 객체 누구 this  결정 emp
+			const inner = ()=>{	document.write("===>"+this.name+"<br>");	}
+			inner();
+		}
+		};
+
+	emp.tellName();
+	
+function f1(a,b,c=50){}
+f1(1,2);//ok c=50기본값
+f1(1,2,3);//ok c=3
+
+//반복 
+
+
+//8.9.10->반복 깊숙하게
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var br = "<br>";
+		function Circle(x, y, r) {
+			this.x = x;
+			this.y = y;
+			this.r = r;
+			this.getName = function() {
+				document.write("circle객체<br>");
+			}
+		}
+
+		Circle.prototype.area = function() {
+			document
+					.write(`원의면적(${this.x},${this.y},${this.r} =${this.r*this.r*Math.PI}${br}`);
+		} //prototype 타입  객체-역할(모든객체 공통기능구현)
+
+		Circle.prototype.getName = function() {
+			document.write("circle객체-프로토타입<br>");
+		}
+		let c1 = new Circle(10, 10, 5);
+		c1.area();
+		c1.getName();
+		let c2 = new Circle(50, 50, 8);
+		c2.area();
+		c1.getName();
+		let c3 = new Circle(80, 80, 4);
+		c3.area();
+		c1.getName();
+
+		//타입확인
+		//Object 내장생성자 메소드/프로토타입메소드 (다른 객체 사용 가능)
+		document.write(Object.prototype.toString.call(c1) + "<br>");//Array와 Object
+		document.write(c1.constructor + "<br>");
+		document.write((c1 instanceof Circle) + "<br>");//연산자
+		document.write(Circle.prototype.isPrototypeOf(c1) + "<br>");//
+
+		document.write("<hr>");
+
+		//상속 확인 
+		function Oval(x, y, r, name) {
+			this.name = name;
+			Circle.apply(this, arguments);//new Circle(this, x,y,r) 생성자 실행
+
+		}
+
+		Oval.prototype = Object.create(Circle.prototype); //getName+area
+
+		let o1 = new Oval(100, 200, 50, "타원1");
+		o1.getName();//생성자내부메소드 . circle객체 / Oval객체
+		o1.area();//prototype메소드
+
+/* 		let myperson = {
+			_name : "--",
+			 setName : function() {
+				_name = "수정";
+			},
+			getName : function() {
+				return "수정";
+			}, 
+set name(n){_name=n;}
+			get name(){return _name;}
+		}
+		document.write(myperson._name + "<br>");
+		myperson.name="수정합니다.";
+		document.write(myperson.name + "<br>"); */
+		
+		let myperson = (function(){
+			let	_name = "--";
+ return{
+	set name(n){ _name= n;},
+				get name(){return _name;}}
+			})();
+			document.write(myperson._name + "<br>");
+ 			myperson.name="수정합니다.";
+			document.write(myperson.name + "<br>"); 
+	</script>
+</body>
+</html>
+
+11장 , 16,17(백엔드-ajax), 19장 제외
+
+
+

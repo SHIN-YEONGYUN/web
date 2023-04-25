@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/*
+function makeCounter(){
+	let count = 0;
+	return count++;//0 리턴후 1 증가
+}//count 변수 가비지 콜렉션
+
+let c1 = makeCounter();
+document.write(c1 + "<br>");//0
+document.write(c1 + "<br>");//0
+document.write(c1 + "<br>");//0
+*/
+
+function makeCounter(){
+	let count = 0;
+	//지역함수, 매개변수함수, 리턴함수
+	return function(){
+		return count++;//0 리턴후 1 증가
+		//(makeCount 내부 사용실행코드-count변수 makeCounter실행후 삭제)
+		//(그런데, makeCounter 리턴함수를 사용 변수가 전역 변수- 스크립트 시작-종료 범위 메모리
+				//삭제되며ㅑㄴ 안된다. 
+	}
+}//count 변수 가비지 콜렉션
+
+let c1 = makeCounter();
+document.write(c1() + "<br>");//0
+document.write(c1() + "<br>");//1
+document.write(c1() + "<br>");//2
+
+window.onload = function(){
+	let count=0;
+	//이벤트1
+	document.getElementById("add").onclick =
+		function(){//중첩함수 선언이지만 호출실행 클릭시마다(전역변수)
+		document.getElementById("result").innerHTML = 
+			"ADD버튼을 " + ++count + " 번 클릭했습니다.";
+		};
+	//이벤트2-1.dom배열
+/*	let numbers = document.getElementsByClassName("numbers");
+ 	for(let i = 0; i < numbers.length; i++){
+		//document.getElementById("result").innerHTML += numbers[i].value+" : ";
+		numbers[i].onclick = function(){//i기억전달
+			document.getElementById("result").innerHTML =
+				numbers[i].value + " 버튼을 클릭했습니다."; 
+		}
+		
+	}*/ 
+
+	//이벤트2-2.dom배열. closure
+	let numbers = document.getElementsByClassName("numbers");
+	//5개 버튼 반복시마다 버튼 클릭이벤트 등록 실행
+	for(var i = 0; i < numbers.length; i++){//0-4
+		(function(index){
+			//document.getElementById("result").innerHTML += numbers[i].value+" : ";
+			numbers[i].onclick = function(){
+				document.getElementById("result").innerHTML =
+					numbers[index].value + " 버튼을 클릭했습니다."; 
+			}
+		})(i);
+	}//for end
+
+//이름공간(사용자 정의 변수나 함수 - 전역변수 window 선언 포함 간주, window 이름 중복x 선언 필요)
+/*let a = 10;
+let b = function(){}
+let onload= 10;//이미 존재 이름을 사용자 변경
+
+
+let f1 = new Function("i","return i*i");
+f1(10);
+f1.toString();
+f1.call(10);
+*/
+}//window onload
+</script>
+<input type=button id="add" value="값증가">
+<div id="result"> </div>
+
+<input type=button class="numbers" value="1">
+<input type=button class="numbers" value="2">
+<input type=button class="numbers" value="3">
+<input type=button class="numbers" value="4">
+<input type=button class="numbers" value="5">
+
+
+</body>
+</html>

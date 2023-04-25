@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+//산술연산  +-*/%
+//자바 - 정수/실수 구분 정수연산->결과정수
+//자바스크립트 -  number 결과 정수,실수
+let result1 = 10 / 3; //3.3333
+document.write(parseInt(result1) + br);//3(실수-정수, 문자열-정수)
+document.write(parseInt(12.56) + br);//12
+document.write(Math.round(12.56) + br);//13
+
+document.write( (10 % 3) + br);//정수
+document.write( (5 % 1.5) + br);//실수
+
+//논리값을 덧셈연산 자동형변환
+document.write( true + true + br);// + 형변환(true-1, false-0)
+document.write( true + false + br);
+document.write( false + false + br);
+
+// null(객체나 배열 값 없습니다), undefined(변수 없습니다.)
+document.write(undefined + 1 + br);//NaN
+document.write(null + 1 + br); // + 형변환(null - 0 )
+
+//  '='-대입(할당)
+// '=='- 값동일비교  . '===' - 값과타입동일비교
+if( undefined === null){
+	document.write("같다" + br);
+}
+
+if( 100 === "100"){
+	document.write("100 === \"100\" 같다" + br);
+}
+if( 100 == "100"){
+	document.write("100 == \"100\" 같다" + br);
+}
+
+// typeof in delete 연산자
+//instanceof 연산자
+
+let obj = {};//리터럴표현객체생성(생성자함수없다. new Object())
+let obj2 = new Object();
+
+function Member(id, password){
+	this.id = id;
+	this.pw = password;
+}
+let obj3 = new Member("script","1234");
+document.write("obj타입= " + Object.prototype.toString.call(obj) + br);
+document.write("obj2타입= " + Object.prototype.toString.call(obj2) + br);
+document.write("obj3타입= " + Object.prototype.toString.call(obj3) + br);
+document.write("obj3타입= " + (obj3 instanceof Member) + br);
+// ++, --. &&, ||, 조건식?true:false
+/*		
+0.0 <= Math.random() < 1.0 난수
+0.0 <= Math.random()*100 < 100.0 난수
+0 <= parseInt(Math.random()*100) < 100 난수(정수.소수점이하버림)
+1 <= parseInt(Math.random()*100)+1 <= 100 난수(정수.소수점이하버림)
+*/
+document.write("난수발생= " + (parseInt(Math.random()*100)+1) + br);
+</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var br = "<br>";
+		//
+		document.write(br);
+
+		let array = [ {
+			eng : "one",
+			kor : "하나"
+		}, {
+			eng : "two",
+			kor : "둘"
+		}, {
+			eng : "three",
+			kor : "셋"
+		} ]
+
+		let array_map = new Map(Object.entries(array));
+		document.write(array_map.get('0').eng + ":" + array_map.get('0')['kor']
+				+ br);
+
+		let map1 = new Map(
+				[ [ "one", "하나" ], [ "two", "둘" ], [ "three", "셋" ] ]);
+		let map2 = new Map([ [ "four", "넷" ], [ "five", "다섯" ] ]);
+		let totalmap= new Map([...map1, ...map2]);
+		document.write(totalmap.size+br);
+		document.write(totalmap.get("one")+br);
+		
+		let set1 = new Set();
+		set1.add("java").add(100).add(3.14).add([1,2,3]);
+		document.write(set1.size+br);
+		document.write(set1.has(100)+br);
+		
+		
+		let ar4 = ["java", "spring", "html", "java", "css", "ai", "java"];
+		new Map(Object.entries(ar4));
+		
+		let array_set = function(ar){return [...ar];}
+		let result = array_set(ar4);
+		document.write(result+br);
+	</script>
+</body>
+</html>
