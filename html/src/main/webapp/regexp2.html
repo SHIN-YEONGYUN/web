@@ -17,7 +17,7 @@ tel = "011111-2222-3333";
 document.write(reg1.test(tel)+br);
 document.write(br);
 
-let reg2 = /^[a-z-A-Z가-힣]{1}[a-z-A-Z가-힣0-9]{1,10}@[a-z-A-Z가-힣0-9]{3,5}(.com|.co.kr|.net)/;
+let reg2 = /^[a-z-A-Z가-힣]{1}[a-z-A-Z가-힣0-9]{1,10}@[a-z-A-Z가-힣0-9]{3,5}(.com|.co.kr|.net)$/;
 window.onload = function(){
 	let valid = document.getElementById("valid");
 	valid.onclick = function(){
@@ -28,6 +28,19 @@ window.onload = function(){
 	}
 }
 // myurl http || https 로 시작할 것 유효성 체크
+let reg3= /^https?:\/\/([a-z-A-z-가-힣0-9]+.?)$/;
+window.onload = function(){
+	let valid = document.getElementById("valid");
+	valid.onclick = function(){
+		// let myemail = document.getElementById("myemail");
+		let myurl = document.getElementById("myurl");
+		let result = document.getElementById("result");
+		let target = myurl.value;
+		result.innerHTML = reg3.test(target);
+	}
+}
+
+
 
 </script>
 홈페이지 <input type=URL id="myurl" size = 100><br>
