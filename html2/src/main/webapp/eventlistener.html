@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//객체선택.addEventLister('이벤트명', 처리함수);
+let second, stop;
+function start(){
+	second = document.getElementById("second");
+	second.addEventListener('click', second_f1);
+	second.addEventListener('click', second_f2);
+	
+	stop = document.getElementById("stop");
+	stop.addEventListener('click', stop_f1);
+}//start
+
+function second_f1(){alert(second.nodeName+":" + second.type);}
+function second_f2(){alert("버튼 클릭시 동작");}
+function stop_f1(){ second.removeEventListener('click' );}
+
+window.addEventListener('load', start);
+
+</script>
+
+<input id="second" type=button value="클릭2" >
+<input id="stop" type=button value="클릭2 클릭이벤트제거" >
+
+</body>
+</html>
+
+
+
+
+
+<!-- 모든 html태그 - 이벤트발생html
+사용자 마우스클릭, 마우스오버 -이벤트발생종류 
+이벤트 발생시 처리 내용 자바스크립트 함수로 구현= 이벤트핸들러함수
+
+ htm태그 - 이벤트종류 - 이벤트처리함수--등록
+document.getElementById("second")
+html문서 id=second 태그 정보 조회.
+
+html태그=자바스크립트 객체형태변환. DOCUMENT OBJECT  DOM
+{
+tagName:input
+id:second
+type:button
+value:클릭2
+}
+
+
+-->

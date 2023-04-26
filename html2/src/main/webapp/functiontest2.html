@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+//
+document.write(br);
+
+function f1(p){
+	if(typeof(p) == 'function'){p.call();}//매개변수 없는 함수
+	else{ document.write("실행불가"+ br); 	}
+}
+
+function f2(){
+	document.write("f2실행"+ br);
+}
+
+/*f1(f2);
+
+let v1 = 100;
+f1(v1);
+*/
+setTimeout(f2, 2000);
+
+
+
+</script>
+</body>
+</html>

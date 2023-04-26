@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+window.onload = function(){
+	let imgtag = document.createElement("img");//<img >
+	//imgtag.setAttribute("src", "/html/images/html5.jpg");//<img src="..">
+	imgtag.src = "/html/images/html5.jpg";
+	imgtag.removeAttribute("src");
+	imgtag.setAttribute("alt","html5 로고 이미지가 등장합니다.");//<img src=".." alt="" >
+	imgtag.setAttribute("id", "newimg");//<img src=".." alt="" id="">
+	if(!imgtag.hasAttribute("src")){
+		imgtag.setAttribute("src", "/html/images/google.png");
+	}
+	//절대경로 : 작성표현 그대로
+	//alert(imgtag.src +":" + imgtag.getAttribute("src") );
+	
+	
+	document.querySelector("#create").appendChild(imgtag);//추가
+	//document.querySelector("#create").appendChild(imgtag);//이동
+	//let clone= imgtag.cloneNode();
+	//document.querySelector("#create").appendChild(clone);//복사
+	//document.querySelector("#create").removeChild(clone);///제거
+	//document.querySelector("#create").removeChild(imgtag);///제거
+	//html태그(정적 태그) 없다. 자바스크립트 동작 추가 태그(동적 생성 태그)
+
+	//이미지 클릭하면 가로 200, 세로 100 조정 리스너 방식 구현
+	let newimg = document.getElementById("newimg");
+	//document.getElementsByTagName("img")[1];
+	//document.querySelectorAll("#newimg")[0];
+	//document.querySelector("#newimg");
+	newimg.addEventListener('click', function(){
+		//this.width = 200;
+		//newimg.height = 100;
+		this.style.width = "200px";
+		newimg.style.height = "100px";	//크기조정	
+	});
+	newimg.addEventListener('click', ()=>{
+		alert(this);
+		this.newimg.src="/html/images/drinks.jpg";	//이미지변경
+	});
+	newimg.addEventListener('click', ()=>{
+		document.querySelector("#create").appendChild(newimg.cloneNode());//이미지복사추가
+	});
+}
+</script>
+
+<div id="create" style="border:2px solid red">이미지태그</div>
+
+</body>
+</html>

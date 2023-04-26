@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+//매개변수값 전달필요x
+function f1(a, b=1){//기본값
+	document.write(a + b +"<br>");
+}
+f1(10);
+f1("java");
+f1(1,2,3);
+f1(10, 20);
+
+//매개변수 가변
+function f2(){
+	document.write("===f2시작===<br>");
+	for(let i = 0; i < arguments.length; i++){
+		document.write(arguments[i] + "<br>");
+	}
+	document.write("===f2종료===<br>");
+	
+}
+f2(10);//arguments [10] 배열
+f2(1,2);
+f2(1,2,3);
+f2(1,2,3,4,5,6,7,8,9,10);
+
+</script>
+
+</body>
+</html>

@@ -86,9 +86,9 @@ function f7(){
  //함수 선언식(함수이름포함)- hoisting
  
  // 함수 표현식=함수 리터럴(1. 무명의함수정의즉각호출실행)
- (function (){
+ (function (a,b){
 	document.write("무명의 함수 실행" + br);
- })();
+ })(1,2);
  
  // 함수 표현식=함수 리터럴(2. 자바스크립트 함수도 변수처럼 취급)-hoisting x
  let f = function(){

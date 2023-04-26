@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body id="all">
+
+	<a id="one" href="b.html">링크문자열1</a>
+	<a class="choice" href="c.html">링크문자열2</a>
+	<a href="d.html">링크문자열3</a>
+	<h1>
+		<a class="choice" href="e.html">링크문자열4</a>
+	</h1>
+	<h1>
+		<a class="choice" href="f.html">링크문자열5</a>
+	</h1>
+	<div id="output"></div>
+	<script>
+		let body = document.getElementById("all");
+		let body_childs = body.childNodes; // 배열
+		for (let i = 0; i < body_childs.length; i++) {
+			if (body_childs[i].nodeType == 1) {
+				document.write(body_childs[i].tagName + "<br>")
+
+			}
+		}
+	</script>
+</body>
+</html>

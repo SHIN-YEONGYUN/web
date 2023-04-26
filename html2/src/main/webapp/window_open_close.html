@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 부모 window -->
+아이디<input type=text id="userid" >
+<input type=button id="new_btn" value="아이디검사(새창)" >
+<input type=button id="close_btn" value="새창닫기" >
+<input type=button id="tochild_btn" value="부모에서전달버튼" >
+<script>
+let child;
+ document.getElementById("new_btn").onclick = function(){
+	 child = open("newpage.html", "창이름", 
+			 "width=400, height=300, top=100, left=100");
+ }
+ document.getElementById("close_btn").onclick = function(){
+	/*window.*/child.close();
+ }
+ 
+ document.getElementById("tochild_btn").onclick = function(){
+	 child.document.getElementById("valid").innerHTML +=
+		 "<br>부모에서 전달하는 문자열입니다.";
+	 
+ }
+</script>
+</body>
+</html>

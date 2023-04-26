@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+onload =function(){
+	let canvas = document.getElementById('mycanvas');
+	// 캔버스 영역 렌더링 컨텍스트 - 붓, 연필, 색연필
+	let ctx = canvas.getContext("2d");
+	
+	//사각형
+	//ctx.strokeRect(50, 50, 200, 100);// 위치(x,y)크기(가로,세로),
+	//ctx.fillRect(50, 50, 200, 100);// 위치(x,y)크기(가로,세로),
+	//ctx.clearRect(50, 50, 200, 100);
+	
+	//삼각형- 라인연결
+	/*ctx.beginPath();
+	ctx.moveTo(50, 50);
+	ctx.lineTo(150, 150);
+	ctx.lineTo(50, 150);
+	ctx.closePath();
+	ctx.stroke();*/
+	
+	//원  pi*반지름 * 2
+	/*ctx.beginPath();
+	ctx.arc(100,100,50, Math.PI/2, Math.PI, false);//중심 x, y, 반지름크기, 원시작위치 크기.시계 
+	ctx.closePath();
+	ctx.fill();
+	*/
+	//텍스트
+	/*ctx.font = "40px serif";
+	ctx.strokeText("Hello Canvas", canvas.width/2 - 20, 180);
+	ctx.fillText("Hello Canvas", canvas.width/2 - 20, 190);
+	*/
+	
+	//이미지 생성자함수
+	/*let myimage = new Image();//값이 없는 이미지.
+	myimage.src = "/html/images/drinks.jpg";
+	// 이미지경로 http://localhost:8081/html/images/drinks.jpg
+	// 현재파일 http://localhost:8081/javascript/canvas.html
+	myimage.onload = function(){
+		ctx.drawImage(myimage, 0, 0, mycanvas.width, mycanvas.height);
+	}*/
+	
+	//텍스트. 색상 굵기 스타일 설정
+	/*ctx.strokeStyle="red"
+	ctx.fillStyle="blue"
+	ctx.lineWidth=10;
+	ctx.font = "40px serif";
+	ctx.strokeText("Hello Canvas", canvas.width/2 - 20, 180);
+	ctx.fillText("Hello Canvas", canvas.width/2 - 20, 220);
+	
+	*/
+	
+	//이미지2
+	let myimage = new Image();//값이 없는 이미지.
+	myimage.src = "/html/images/html5.jpg";
+	myimage.onload = function(){
+		ctx.drawImage(myimage, 0, 0);
+		/*cut-paste*/
+		let cutimage = ctx.getImageData(0, 50, myimage.width, 50);//cut 영역(위치,크기)
+		//색상 반전
+		// image 1 point (rgba)[0-255,20,30,40, 2, 3, ]
+		for(let i = 0; i < cutimage.data.length; i++){
+			if(i % 4 != 3){
+				cutimage.data[i] = 255 - cutimage.data[i];
+			}
+		}
+		ctx.putImageData(cutimage, 200, 100);//paste 영역(대상, 위치)
+		//ctx.clearRect(0, 50, myimage.width, 50);
+	}
+	
+	
+}//onload end
+
+</script>
+<canvas id="mycanvas" width=640 height=400 style="border : solid 2px blue"></canvas>
+</body>
+</html>

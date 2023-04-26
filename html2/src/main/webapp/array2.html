@@ -5,128 +5,198 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-		var br = "<br>";
-		//
-		document.write(br);
+<script>
+var br="<br>";
+document.write(br);
 
-		let ar1 = [ 1, 2, 3, 100, 5 ];
-		let ar2 = new Array();
+let ar1 = [1,2,3,100,5];//ar1.length=5
+let ar2 = new Array();//ar2.length=0
 
-		// 추가삭제
-		/* ar1.push(450);
-		 ar1.unshift(10);
-		 ar1[3] = "새로추가";
-		 ar[7] = "값추가";
-		 delete ar1[7];
-		 ar1.shift();
-		 ar1.pop();
-		 ar1.splice(1,2);
-		 ar1.splice(1,0,"추가");
-		 document.write(ar1.length+br);
-		 document.write(ar1+br); */
-		/* 
-		 let result_ar = ar1.slice(1,4);
-		 document.write(result_ar + br); */
+//추가삭제
+//ar1.push(450);
+//ar1.unshift(10);//앞 추가
+//ar1[7] = "값추가";
 
-		let ar3 = [ 1, 2, 3, 100, 5 ];
-		document.write("정렬이전 = " + ar3 + br);
-		document.write("정렬이후1 = " + ar3 + br);
-		ar3.sort(function(i, j) {
-			return i - j;
-		}); // sort - 고차함수
-		// function(){} = sort 메소드가 실행될 때 같이 자동실행
-		document.write("정렬이후2(숫자오름) = " + ar3 + br);
-		ar3.sort(function(i, j) {
-			return -(i - j);
-		}); // sort - 고차함수
-		document.write("정렬이후3(숫자내림) = " + ar3 + br);
+//delete ar1[7];
+//ar1.shift();//앞 삭제
+//ar1.pop();//마지막 
+//ar1.splice(1, 2);//1번인덱스부터 2개 삭제 
+//ar1.splice(1, 0, "추가");//1번인덱스 추가
+//document.write(ar1.length + br);
+//document.write(ar1 + br);
 
-		// 수정
-		let result2 = ar1.concat([ 'java', 'script' ]);
-		document.write("concat이후 = " + result2 + br);
-		// 조회
-		document.write(ar1.join("<br>") + br);
-		// for(a in ar1){ar1[a]}
+//let result_ar = ar1.slice(1,4);//1번인덱스 시작 4전인덱스직전(3번) 추출 새로운 배열 생성
+//document.write(result_ar + br);
 
-		// 포함여부
-		let isJava = result2.includes('java');
-		document.write(isJava + br);
+let ar3 = [1,2,3,100,5];
+document.write("정렬이전=" + ar3 + br);
+//직접 원본배열 정렬 상태 수정. ar 변경
+// 배열 문자열형태 간주. 오름차순정렬(사전식정렬)
+ar3.sort();
+document.write("정렬이후1=" + ar3 + br);// 1 100 2 3 5 
+//숫자 오름차순 정렬  1 2 3 5 100
+ar3.sort(function(i,j){ return i - j; });
+//sort 매개변수로 함수 지정 함수=고차함수
+// function(){}=sort메소드실행 자동실행 = 콜백함수
+// f(10, 1) > 0 -  sort는 원본 배열 데이터 순서 변경
+// f(1, 10) < 0 -  sort는 원본 배열 데이터 순서 변경x
+// f(1, 10) ==  0 -  sort는 원본 배열 데이터 순서 변경x
 
-		// 포함위치(0~배열.length-1) / 없으면 -1
-		let index = result2.indexOf('java');
-		document.write(index + br);
 
-		let ar4 = [ "java", "spring", "html", "java", "css", "ai", "java" ];
+document.write("정렬이후2(숫자오름)=" + ar3 + br);// 1 2 3 5 100
 
-		let start = 0;
-		while (true) {
-			let target = ar4.indexOf("java", start);
-			if (target == -1)
-				break;
-			ar4.splice(target, 1);
-			start = target;
-		}
+ar3.sort(function(i,j){ return -1 * (i - j); });
+document.write("정렬이후3(숫자내림)=" + ar3 + br);// 100 5 3 2 1
 
-		document.write(ar4 + br);
 
-		let items = [ 'item1', 'item2', 'item3' ];
-		let copy_items = [];
+//수정
+let result2 = ar1.concat(['java', 'script']);//slice() 1개배열 조그만 일부 배열 잘라서 
+document.write("concat이후=" + result2 + br);
 
-		for (let i = 0; i < items.length; i++) {
-			copy_items.push(items[i]);
-		}
-		items.forEach(function(item) {
-			copy_items.push(item);
-		});
 
-		document.write("카피 배열 = " + copy_items + br);
+//조회
+document.write(ar1.join("<br>") + br);//모든 데이터 조회 <br>분리자 메소드
+//for(a in ar1){ ar1[a]  } 
 
-		items.forEach(function(item, index, items) {
-			// items 배열 각 요소를 대문자로 변경 결과를 items 배열 저장
-			items[index].toUpperCase();
-		});
-		document.write("대문자변경 items = " + items + br);
+//포함여부
+let isJava = result2.includes('java');
+document.write(isJava + br);
 
-		let numbers = [ 1, 4, 9, 16, 25 ];
-		let roots = numbers.map(Math.sqrt);
-		document.write("sqrt실행이전 = " + numbers + br);
-		document.write("sqrt실행이후 = " + numbers + br);
-		document.write("sqrt실행이후 = " + roots + br);
+//포함위치(0~ 배열.length-1)/ 없으면 -1
+let index = result2.indexOf('java');
+document.write(index + br);
 
-		let strings = [ '1', '4', '9', '16', '25' ];
-		// let str_numbers = strings.map(Number);
+let ar4 = ["java", "spring", "html", "java", "css", "ai", "java"];
+//ar4 배열에서 "java" 삭제
+/*let start = 0; //배열 0인덱스부터 
+while(true){
+	let target = ar4.indexOf("java", 0);//splice는 삭제되므로 0으로 세팅해도 됨
+	if(target == -1) break;
+	ar4.splice(target, 1);//삭제되므로 0
+	start = target + 1;
+}
 
-		let str_numbers = strings.map(function(s) {
-			parseInt(s, 10);
-		});
-		document.write("변환이후 = " + str_numbers + br);
+document.write(ar4 + br);
+*/
 
-		items = [ 'item1', 'item2', 'item3' ];
-		items.map(function(i) {
-			return "<li>" + i + "</li>";
-		});
 
-		/* document.write("<ul>");
-		 document.write(lis);
-		 document.write("</ul>");
-		 */
-		let two = [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ];
-		two.push([ 1, 1, 1 ]);
+//ar4 배열에서 "java" 찾아 출력(삭제테스트 주석후 실행할 것)
+let start = 0; //배열 0인덱스부터 
+while(true){
+	//document.write(start+br);
+	let target = ar4.indexOf("java", start);//splice는 삭제되므로 0으로 세팅해도 됨
+	//document.write(target+br);
+	if(target == -1) break;
+	document.write(ar4[target] + br);
+	start = target + 1;
+}
 
-		for (let i = 0; i < two_const.length; i++) {
-			two_const[i] = new Array(3);
-			for (let j = 0; j < two_const[i].length; j++) {
-				two_const[i][j] = i * j;
-			}
-		}
-		document.write(two_const + "<br>");
+//join("분리요소");
+//ar4 모든 요소 대문자변경 
+// forEach(function(){ 출력문장 반복})
+// =map(function(){원본배열 반복 내용 또다른 배열 생성 리턴})
 
-		let obj = {
-			'0' : 1,
-			'1' : 10,
-			'length' : 10
-		};
-	</script>
+//12시 50분
+
+let items=['item1', 'item2', 'item3'];
+let copy_items = [];
+
+//for (결과동일)
+for(let i = 0; i < items.length; i++){
+	copy_items.push(items[i]);
+}
+//메소드(결과동일)
+items.forEach(function(item){ copy_items.push(item); });
+
+document.write("copy_items배열="+copy_items + br);
+
+items.forEach(function(item, index, items){
+	//items배열 각 요소를 대문자로 변경 결과를 items 배열 저장
+	items[index] =  item.toUpperCase();
+});
+document.write("대문자변경items="+items + br);
+
+let numbers = [1, 4, 9, 16, 25];
+let roots = numbers.map(Math.sqrt);
+document.write("sqrt실행이전="+ numbers + br);
+document.write("sqrt실행이후="+ numbers + br);
+document.write("sqrt실행이후="+ roots + br);
+
+let strings = ['1', '4', '9', '16', '25'];
+let str_numbers = strings.map(Number);
+
+//let str_numbers = strings.map(function(s) { return parseInt(s, 10);});
+str_numbers = strings.map( s => parseInt(s, 10) );
+document.write("변환이후=" + str_numbers + br);
+
+items=['item1', 'item2', 'item3'];
+let lis = items.map(function(i){
+	return "<li>"+ i + "</li>";
+	
+});
+
+document.write("<ul>");
+document.write(lis);
+document.write("</ul>");
+//item1 ==> <li>  item1 </li>
+
+
+let two=[  [1,2,3], [4,5,6], [7,8,9] ];
+two.push([1,1,1]);
+
+let two_const = new Array(3);
+for(let i = 0; i < two_const.length; i++){
+	two_const[i] = new Array(3);
+	for(let j = 0; j < two_const[i].length ; j++){
+		two_const[i][j] = i*j;
+	}
+}
+document.write(two_const + "<br>");
+
+//1.객체이지만 배열로 사용 가능
+//2. 프로퍼티변수 0이상 정수
+//3.  length 프로퍼티 있음
+//유사 배열객체- arguments , document.getElementsByClassMane("클래스이름값");
+//1개태그--document.getElementById("ID값")
+let obj = {'0':1, '1':10 , 'length':10};//네트워크상 컴퓨터, iot, 
+
+//비구조할당
+//let i = 1; let j = 2;
+//let i=1, j=2;
+//let [i,j] =  [1, 2];//배열
+//document.write(i+":"+j + br);
+//[i,j] = [j,i];//i,j 값 서로 맞바꿈
+//document.write(i+":"+j + br);
+
+//나머지변수
+let [i,j, ...k] = [10,20,30,40,50];
+
+//함수 리턴값 비구조할당
+function test(i,j){
+	return [i+j, i-j, i*j, i/j];
+}
+
+//let array=test(10,2);
+//let [a,b,c,d] = test(10, 5);
+
+/*let {a:x, b:y} = {x:100, y:200};
+console.log(a + ":" + b + br);
+*/
+
+//spread=펼친다
+//let str1 = "javascript";
+let result1 =  [..."javascript"] ;
+document.write(result1 + br);
+
+function test2(x,y,z){
+	return x+y+z;
+}
+
+let result3 = test2([10,20,30]);
+//let result3 = test2(...[10,20,30]);
+
+document.write(result3 + br);
+
+</script>
 </body>
 </html>

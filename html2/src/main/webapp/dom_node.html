@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+//test1 전체요소 확인	(1:태그,3:텍스트 있다,  2:속성은 없다(태그일때 태그에 포함된 속성명으로 접근))
+/*let body = document.getElementById("all");
+let body_childs = body.childNodes;// 배열
+alert(body_childs.length)
+
+for(let i = 0; i < body_childs.length; i++){
+	//if(body_childs[i].nodeType == 1){//태그노드인지 확인
+		document.write(body_childs[i].nodeType 
+				+ ":" + body_childs[i].nodeName 
+				+":" + body_childs[i].nodeValue + "<br>");
+	//}//if end
+}//for end
+*/
+
+//test2 id 읽어서
+/*let one = document.getElementById("one"); //1객체리턴 
+document.getElementById("output").innerHTML = 
+	one.innerHTML  + " 를 클릭하면 " + one.href + " 로 이동합니다.";
+*/
+
+//test3 클래스이름
+/*let choices = document.getElementsByClassName("choice"); //객체배열 리턴 
+for(let i = 0; i < choices.length; i++){
+	document.getElementById("output").innerHTML += 
+		choices[i].innerHTML  + " 를 클릭하면 " + choices[i].href + " 로 이동합니다.<br>";
+}
+*/
+
+//test4 태그이름 읽어서
+/*	let choices = document.getElementsByTagName("a"); //객체배열 리턴 
+	for(let i = 0; i < choices.length; i++){
+		document.getElementById("output").innerHTML += 
+			choices[i].innerHTML  + " 를 클릭하면 " + choices[i].href + " 로 이동합니다.<br>";
+	}
+*/
+// test5 name속성
+/*	let choices = document.getElementsByName("address"); //객체배열 리턴 
+	for(let i = 0; i < choices.length; i++){
+		document.getElementById("output").innerHTML += 
+			choices[i].value  + " 를 " + choices[i].type + " 로 전달합니다.<br>";
+	}*/
+
+
+	//test6 css selector 문법-1개선택
+/*	let one = document.querySelector("#one");
+	document.getElementById("output").innerHTML = 
+		one.innerHTML  + " 를 클릭하면 " + one.href + " 로 이동합니다.<br>";
+*/		
+	//test7	배열리턴
+	//let choices = document.querySelectorAll(".choice");
+//let choices = document.querySelectorAll("a#one");
+//let choices = document.querySelectorAll("h1 > a");
+//let choices = document.querySelectorAll("a , input");
+//let choices = document.querySelectorAll("input[type=text]");
+//let choices = document.querySelectorAll("body > a:nth-child(1)");
+
+//h1태그 포함 a, 여러개이면 1번쨰태그만 선택
+let choices = document.querySelectorAll("h1:nth-child(4) a");
+	for(let i = 0; i < choices.length; i++){
+		document.getElementById("output").innerHTML += 
+			choices[i].innerHTML  + " 를 클릭하면 " + choices[i].href + " 로 이동합니다.<br>";
+		document.getElementById("output").innerHTML += 
+			choices[i].nextElementSibling.nodeName + "<br>";
+	}	
+// 
+}//onload
+</script>
+</head>
+
+
+
+
+<body id="all" title="body" style="color:blue">
+
+<a id="one" href="b.html">링크문자열1</a>
+<a class="choice" href="c.html">링크문자열2</a>
+<a href="d.html">링크문자열3</a>
+<h1 id="one" ><a class="choice"  href="e.html">링크문자열4</a></h1>
+<h1><a class="choice" href="f.html">링크문자열5</a></h1>
+<div id="output"></div>
+
+<form action="a.jsp">
+	<input type=text value="주소기본값" name="address"><!-- html, js 사용 의미없다. a.jsp 값전달이후 사용 -->
+	<Input type=submit value="전송">
+</form>
+
+</body>
+
+</html>
