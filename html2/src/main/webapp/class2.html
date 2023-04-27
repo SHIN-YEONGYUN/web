@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+class Circle{
+	constructor(center, radius){ //new Circle({x:10, y:20}, 6 )
+		this.center = center;
+		this.radius = radius;
+	}
+	area(){
+		return this.radius * this.radius * Math.PI;
+	}
+	toString(){
+		return "원의 중점 x=" + this.center.x + " , y=" + this.center.y
+		+ " 이고 반지름이 " + this.radius + " 인 원의 면적=" + this.area() +"<br>";
+	}
+}
+
+class Ball extends Circle{
+	constructor(center, radius, name){
+		super(center, radius);
+		this.name = name;//추가프로퍼티
+	}
+	//추가메소드
+	move(x, y){
+		this.center.x = x;
+		this.center.y = y;
+	}
+	//toString 오버라이딩
+	toString(){
+		//return this.name + "의 중점 x=" + this.center.x + " , y=" + this.center.y
+		//+ " 이고 반지름이 " + this.radius + " 인 원의 면적=" + this.area() +"<br>";
+		
+		let imsi = super.toString();
+		return imsi.replaceAll("원", this.name);
+		
+		
+	}
+}
+
+let c1 = new Circle({x:100, y:200}, 10);
+document.write(c1/*.toString()*/);
+
+let b1 = new Ball({x:50, y:50}, 20, "농구공");
+//document.write(b1.name + "<br>");
+document.write(b1/*.toString()*/);
+
+let b2 = new Ball({x:50, y:50}, 2, "골프공");
+//document.write(b1.name + "<br>");
+document.write(b2/*.toString()*/);
+
+</script>
+</body>
+</html>

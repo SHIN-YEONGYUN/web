@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+class Person{
+	#salary;//constructor외부영역,변수초기화값없음.'#' - private변수선언
+	constructor(name, age, gender){
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.#salary = 10000; 
+		Person.personcount++;
+	}
+	//protptype
+	print(){
+		document.write("이름=" + this.name + " , 나이=" + this.age 
+				+ " , 성별=" + this.gender +"<br>");
+	}
+	//gett/setter property
+	set pay(salary){ this.#salary = this.#salary + salary; }
+	get pay(){ return this.#salary}
+	
+	//static메소드 추가
+	static count(){
+		return Person.personcount;
+	}
+}
+
+//static변수 . 클래스외부에 선언. 클래스명.static변수명
+Person.personcount = 0;//Person클래스내부 static변수 추가
+document.write("생성한객체수=" + Person.count() +"<br>");
+
+let p1 = new Person("이철수", 30, "남");
+document.write("생성한객체수=" + Person.count() +"<br>");
+p1.print();
+p1.pay = 5000;//set pay(salary) 호출
+document.write("급여=" + p1.pay + "<br>");//get pay() 호출
+
+let p2 = new Person("김영희", 20, "여");
+document.write("생성한객체수=" + Person.count()+"<br>" );
+p2.print();
+document.write("급여=" + p2.pay + "<br>");//get pay() 호출
+
+let p3 = new Person("박병철", 40, "남");
+document.write("생성한객체수=" + Person.count()+"<br>" );
+p3.print();
+document.write("급여=" + p3.pay + "<br>");//get pay() 호출
+
+
+//private
+//document.write("급여=" + p2.#salary + "<br>");//
+
+
+//자바스크립트 -브라우저 이벤트처리, html태그동작 보조 + 객체지향언어로탈바꿈
+</script>
+</body>
+</html>

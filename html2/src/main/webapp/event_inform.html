@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+window.addEventListener('load', function(){
+	document.querySelector("#test").addEventListener('click', function(event){
+		document.querySelector("#result").innerHTML = 
+			event.type +":" + event.Target.tagName + " 이벤트 발생 <br>" 
+			+ "x좌표=" + event.offsetX + ", y좌표=" + event.offsetY +"<BR>";
+	});//click end
+	
+ 	document.querySelector("#test").addEventListener('mousemove', function(event){
+		document.querySelector("#result").innerHTML = 
+			event.type +":" + event.target.tagName + " 이벤트 발생 <br>" 
+			+ "x좌표=" + event.offsetX + ", y좌표=" + event.offsetY +"<BR>";
+	});//click end 	
+});//LOAD end
+
+</script>
+<div id="test">클릭해 보세요</div>
+<h1 id=result></h1>
+</body>
+</html>

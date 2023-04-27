@@ -10,13 +10,33 @@
 <input type=radio id=three value="blue" name="col">파랑색
 <input type=radio id=four value="silver" name="col">회색
 <canvas id="mycanvas" width="640" height=400 style="border:2px solid pink" ></canvas>
-<div id="state">????</div>
+<div id="state"></div>
 <!-- 
 4개 라디오버튼 중 1개 선택하면 선택 색상 이름으로 사각형 2개 그린다. 
 선사각형 / 바탕색포함사각형 - 캔버스 내부 왼쪽 오른쪽 배치
 
  -->
 <script>
+//xxx.nodeType =1, nodeName(태그이름)
+//xxx.nodeType =1, nodeValue(테스트값)
+let radio_list = document.querySelectorAll("input[name=col]");
+let state = document.querySelector("#state");//전역내부선언
+//document.getElementsByName("col");
+//document.getElementsByTagName("input");
+for(let i = 0; i < radio_list.length;i++){
+radio_list[i].addEventListener('click', 
+	function(){ 	
+	let mycolor = this.value;
+	let mycanvas = document.querySelector("#mycanvas");
+	let mycontext = mycanvas.getContext("2d");
+	mycontext.strokeStyle = mycolor;
+	mycontext.fillStyle = mycolor;
+	mycontext.strokeRect(50, 100,200,100);
+	mycontext.fillRect(300,100,200,100);
+	let mycol_hangle = radio_list[i].nextSibling.nodeValue;
+	state.innerHTML = `${mycol_hangle}을 선택하셨습니다.(${mycolor})`;
+	});
+}
 
 </script>
 

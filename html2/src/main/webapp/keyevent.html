@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+window.addEventListener('load', function(){
+	let phone = document.querySelector("#phone");
+	let result = document.querySelector("#result");
+	//onkeydown-onkeypress-onkeyup(성공) (1개 키입력)
+	phone.addEventListener('keydown', function(e){
+		//alert(e.key + ":" + e.keyCode);
+		//대부분브라우저 keyCode 지원. key 미지원 모바일브라우저
+		let k = e.key || e.keyCode;
+		if(e.keyCode >= 48 && e.keyCode <= 57){
+			result.innerHTML = k + " : 적합";
+			result.style.color = "green";
+		}
+		else if(k === 'Enter' || k===13){
+			location.href="a.jsp";
+		}
+		else {
+			result.innerHTML = k + " : 부적합";
+			result.style.color = "red";
+		}
+
+		
+	});//keydown end
+});//load
+
+</script>
+<input type=text id="phone"><!-- 숫자만입력 -->
+<div id="result">결과표시</div>
+</body>
+</html>

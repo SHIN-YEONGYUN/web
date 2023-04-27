@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.parent{
+  width: 500px;
+  height: 500px;
+  background-color: #ddd;
+}
+.child{
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+<div class="parent"></div>
+<button id="btn">클릭</button>
+<script>
+let parent = document.querySelector(".parent");
+let btn = document.querySelector("#btn");
+btn.addEventListener("click", function(){
+	parent.innerHTML = '<H1 class="child">나는 새롭게 추가된 태그(클릭가능)</H1>';
+});
+
+//새롭게 동적 추가 태그 이벤트 처리시 부모 태그 이벤트 처리
+parent.addEventListener("click", function(e){
+		//e.target-실제이벤트발생태그
+		//e.currentTarget-이벤트처리함수가진태그
+		/* e.currentTarget.children[0].style.backgroundColor = "green"; */
+		e.target.style.backgroundColor = "green";
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+
