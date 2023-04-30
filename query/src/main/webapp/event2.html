@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#box").css({
+		height : "100px",
+		width:"100px",
+		backgroundColor:"orange"
+	});
+	//1개태그에 여러개 이벤트 처리
+	$("#box").on({
+		click : ()=>{$("#box").css("background-color","yellow");}
+		,
+		mouseenter:function(){$(this).css("background-color","green");}
+		,
+		mouseout : function(){$(this).css("background-color","lime");}
+	});
+	
+});//ready
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

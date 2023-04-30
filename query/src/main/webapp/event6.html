@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+//checkbox 타입 초기상태값 출력
+$('div').html('');
+$('div').css('border','2px solid lightgreen');
+
+$('input:checkbox').each(function(index){
+	$('div').append($(this).attr('value') + "<br>");
+});
+
+$('div').html('');
+
+$('form').on('submit', function(event){
+	event.preventDefault();
+	let check=[];
+	$("input:checked").each(function(){
+		check.push($(this).val() + ":" + $(this).prop('checked') +"<br>");
+	});
+	
+	check.push($("input:text").val());
+	$('div').html(check);
+})//submit
+
+
+//검색버튼 클릭시 
+//기본동작 해제
+//checkbox 선택사항 + 입력한 검색어 ->div 출력
+});
+</script>
+</head>
+<body>
+<select>
+<option>a1</option>
+<option selected>a2</option>
+<option>a3</option>
+</select>
+<h1> 검색 대상과 검색어를 입력하세요.</h1>
+<form action="a" id="searchform" >
+	<input type=checkbox value="제목|내용|작성자" />모두
+	<input type=checkbox value="제목" />제목
+	<input type=checkbox value="내용" />내용
+	<input type=checkbox value="작성자" />작성자
+	<input type=text value="검색어를 입력하세요" />		 
+	<input type=submit value="검색" />
+</form>
+<div id=result>여기에 결과가 보여요</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+
+//keydown-keypressed-keyup-글씨입력완성
+let total_len = parseInt($('h1').text());
+
+$('textarea').on('keyup', function(){
+	let str_len = $(this).val().length;
+	let remain_len = total_len - str_len;
+	$('h1').text(remain_len);
+	$('h2').text('글자 남았습니다');
+	$('h2').css('color',"blue");
+	if(remain_len == 0){
+		$('h2').text('더이상 입력 불가능합니다');
+		$('h2').css('color',"red");
+		$(this).attr("readonly","readonly");
+	}
+});//keyup end
+$("input[value=새로입력]").on('click', function(){
+	let jqText = $('textarea');
+	let jqH2 = $('h2');
+	jqText.val('');
+	jqText.removeAttr('readonly');
+	jqText.focus();//1. textarea 내가 마우스클릭 입력 준비 2.함수 
+	
+	$('h1').text(total_len);
+	jqH2.text("새로 입력 가능합니다");
+	jqH2.css("color","blue");
+
+});//click end
+
+//textarea 사용자 마우스 클릭 / focus함수 호출 - 포커스 얻는다
+//포커스 이벤트
+$('textarea').on('focus', function(){
+	$(this).css("background-color", "silver");
+});//focus end
+
+/*textarea 읽자
+키업 이벤트 : h1 태그 100-99-98...(파랑색)
+            h2 글자 입력 가능합니다 -- 글자 남았습니다(파랑색)
+               100글자 넘게 입력시 -- 더이상 입력 불가능합니다(빨강색)
+               textarea readonly 추가 
+
+ input type=button  읽자
+ 클릭 이벤트 : textarea 입력내용 삭제
+ textarea readonly 해제
+ h1  100
+ h2 새로 입력 가능합니다(파랑색)
+ */              
+});
+</script>
+</head>
+<body>
+<h1 style="display:inline">10</h1>
+<h2 style="display:inline"> 글자 입력 가능합니다 </h2>
+<textarea rows=5 cols=100 >
+</textarea>
+<input type=button value="새로입력">
+
+
+</body>
+</html>
+<!-- 5줄씩 보인다. 5줄이상입력시 스크롤바 생성 -->
